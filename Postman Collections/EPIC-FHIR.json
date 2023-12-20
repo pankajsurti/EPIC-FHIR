@@ -6,6 +6,92 @@
 	},
 	"item": [
 		{
+			"name": "AllergyIntolerance",
+			"item": [
+				{
+					"name": "AllergyIntolerance Read (R4)",
+					"id": "6e5a0413-db00-430e-a175-9da832f11e32",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{BaseURL}}//R4/AllergyIntolerance/erXuFYUfucBZaryVksYEcMg3"
+					},
+					"response": []
+				},
+				{
+					"name": "AllergyIntolerance Create (R4)",
+					"id": "9cfa3c9e-587a-44b3-91f0-747c31343ec5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{BaseURL}}//R4/AllergyIntolerance"
+					},
+					"response": []
+				},
+				{
+					"name": "AllergyIntolerance Search (R4)",
+					"id": "1540e44d-5f7a-4863-a818-1ffb898e3ce7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseURL}}/R4/AllergyIntolerance?clinical-status=active&patient=erXuFYUfucBZaryVksYEcMg3",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"R4",
+								"AllergyIntolerance"
+							],
+							"query": [
+								{
+									"key": "clinical-status",
+									"value": "active",
+									"type": "text",
+									"description": "The current status of the allergy. Only \"active\" is accepted."
+								},
+								{
+									"key": "patient",
+									"value": "erXuFYUfucBZaryVksYEcMg3",
+									"type": "text"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "be7c7b0f-e4b3-4edc-bb94-f7cc6db30f5a",
+			"description": "### Description\n\nThe AllergyIntolerance resource defines clinical information about a patient's allergic response to a substance. It defines the substance that elicited the response, as well as when the reaction occurred, the severity, and the type of reaction noted.\n\nThe AllergyIntolerance resource accommodates creating allergies by adding them to the \"holding tank\" that drives the EpicCare Reconcile Outside Data Activity. Information in the holding tank is not yet in the patient's chart until reconciled by a clinician. Once a clinician reconciles the allergy, the unconfirmed AllergyIntolerance in the \"holding tank\" will no longer appear in AllergyIntolerance.Search results. A new AllergyIntolerance resource associated with the reconciled allergy will be available in the normal AllergyIntolerance.Search API\n\nThis API may behave differently when used in a patient-facing context. See the [Patient-Facing Apps Using FHIR](https://null) document for more information."
+		},
+		{
 			"name": "Appointment",
 			"item": [
 				{
@@ -88,89 +174,6 @@
 			"id": "f55f26c8-737d-4724-82b5-f001e18ee838"
 		},
 		{
-			"name": "AllergyIntolerance",
-			"item": [
-				{
-					"name": "AllergyIntolerance Read (R4)",
-					"id": "6e5a0413-db00-430e-a175-9da832f11e32",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": "{{BaseURL}}//R4/AllergyIntolerance/erXuFYUfucBZaryVksYEcMg3"
-					},
-					"response": []
-				},
-				{
-					"name": "AllergyIntolerance Search (R4)",
-					"id": "1540e44d-5f7a-4863-a818-1ffb898e3ce7",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{BaseURL}}/R4/AllergyIntolerance?service-category=surgery&patient=erXuFYUfucBZaryVksYEcMg3",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"R4",
-								"AllergyIntolerance"
-							],
-							"query": [
-								{
-									"key": "date",
-									"value": "",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "identifier",
-									"value": "",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "service-category",
-									"value": "surgery",
-									"description": "surgery or appointment"
-								},
-								{
-									"key": "status",
-									"value": "",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "patient",
-									"value": "erXuFYUfucBZaryVksYEcMg3"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"id": "be7c7b0f-e4b3-4edc-bb94-f7cc6db30f5a",
-			"description": "### Description\n\nThe AllergyIntolerance resource defines clinical information about a patient's allergic response to a substance. It defines the substance that elicited the response, as well as when the reaction occurred, the severity, and the type of reaction noted.\n\nThe AllergyIntolerance resource accommodates creating allergies by adding them to the \"holding tank\" that drives the EpicCare Reconcile Outside Data Activity. Information in the holding tank is not yet in the patient's chart until reconciled by a clinician. Once a clinician reconciles the allergy, the unconfirmed AllergyIntolerance in the \"holding tank\" will no longer appear in AllergyIntolerance.Search results. A new AllergyIntolerance resource associated with the reconciled allergy will be available in the normal AllergyIntolerance.Search API\n\nThis API may behave differently when used in a patient-facing context. See the [Patient-Facing Apps Using FHIR](https://null) document for more information."
-		},
-		{
 			"name": "Binary",
 			"item": [
 				{
@@ -250,86 +253,6 @@
 				}
 			],
 			"id": "72cbcb87-a74c-46e6-8639-06cab93736d9"
-		},
-		{
-			"name": "Condition",
-			"item": [
-				{
-					"name": "Condition Read",
-					"id": "42776f1c-7c55-446d-bb56-a9ed0c72907e",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/fhir+json",
-								"type": "text"
-							},
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": "{{BaseURL}}//R4/Condition/euDDjG6i1-OkhZii5APxOiw3"
-					},
-					"response": []
-				},
-				{
-					"name": "Condition Search",
-					"id": "eea6fbab-720d-4024-a282-d7ece9c6df12",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/fhir+json",
-								"type": "text"
-							},
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{BaseURL}}/R4/Condition?patient=erXuFYUfucBZaryVksYEcMg3&clinical-status=activate",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"R4",
-								"Condition"
-							],
-							"query": [
-								{
-									"key": "patient",
-									"value": "erXuFYUfucBZaryVksYEcMg3"
-								},
-								{
-									"key": "clinical-status",
-									"value": "activate",
-									"description": "activate, resolved, inactive"
-								},
-								{
-									"key": "category",
-									"value": null,
-									"description": "dental-finding,dental-finding,genomics,health-concern,infection,medical-history,problem-list-item,eason-for-visit",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"id": "3191566b-1ed1-40e6-b71b-d3e175f80058"
 		},
 		{
 			"name": "CarePlan",
@@ -484,6 +407,86 @@
 				}
 			],
 			"id": "7434444d-b5a4-4db8-bd55-c1204c200668"
+		},
+		{
+			"name": "Condition",
+			"item": [
+				{
+					"name": "Condition Read",
+					"id": "42776f1c-7c55-446d-bb56-a9ed0c72907e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/fhir+json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{BaseURL}}//R4/Condition/euDDjG6i1-OkhZii5APxOiw3"
+					},
+					"response": []
+				},
+				{
+					"name": "Condition Search",
+					"id": "eea6fbab-720d-4024-a282-d7ece9c6df12",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/fhir+json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseURL}}/R4/Condition?patient=erXuFYUfucBZaryVksYEcMg3&clinical-status=activate",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"R4",
+								"Condition"
+							],
+							"query": [
+								{
+									"key": "patient",
+									"value": "erXuFYUfucBZaryVksYEcMg3"
+								},
+								{
+									"key": "clinical-status",
+									"value": "activate",
+									"description": "activate, resolved, inactive"
+								},
+								{
+									"key": "category",
+									"value": null,
+									"description": "dental-finding,dental-finding,genomics,health-concern,infection,medical-history,problem-list-item,eason-for-visit",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "3191566b-1ed1-40e6-b71b-d3e175f80058"
 		},
 		{
 			"name": "DocumentReference",
