@@ -92,98 +92,6 @@
 			"description": "### Description\n\nThe AllergyIntolerance resource defines clinical information about a patient's allergic response to a substance. It defines the substance that elicited the response, as well as when the reaction occurred, the severity, and the type of reaction noted.\n\nThe AllergyIntolerance resource accommodates creating allergies by adding them to the \"holding tank\" that drives the EpicCare Reconcile Outside Data Activity. Information in the holding tank is not yet in the patient's chart until reconciled by a clinician. Once a clinician reconciles the allergy, the unconfirmed AllergyIntolerance in the \"holding tank\" will no longer appear in AllergyIntolerance.Search results. A new AllergyIntolerance resource associated with the reconciled allergy will be available in the normal AllergyIntolerance.Search API\n\nThis API may behave differently when used in a patient-facing context. See the [Patient-Facing Apps Using FHIR](https://null) document for more information."
 		},
 		{
-			"name": "Communication",
-			"item": [
-				{
-					"name": "Communication Read (R4)",
-					"id": "27473cf3-997b-428f-af3c-d9e244aa4a86",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": "{{BaseURL}}//R4/Communication/erXuFYUfucBZaryVksYEcMg3"
-					},
-					"response": []
-				},
-				{
-					"name": "Communication Create (R4)",
-					"id": "ef4327f5-ec2d-473f-a8ef-4cbabe04ed7c",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": "{{BaseURL}}//R4/Communication"
-					},
-					"response": []
-				},
-				{
-					"name": "Communication Search (R4)",
-					"id": "1c791321-785d-4f7b-8601-91639e1866da",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{BaseURL}}/R4/Communication?part-of=&patient=erXuFYUfucBZaryVksYEcMg3",
-							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"R4",
-								"Communication"
-							],
-							"query": [
-								{
-									"key": "part-of",
-									"value": "",
-									"type": "text",
-									"description": "Reference to the Task resource this Communication belongs to."
-								},
-								{
-									"key": "patient",
-									"value": "erXuFYUfucBZaryVksYEcMg3",
-									"type": "text"
-								},
-								{
-									"key": "subject",
-									"value": "",
-									"type": "text",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"id": "c98304bf-0f7a-4ee8-b97d-f448394ed257",
-			"description": "### Description\n\nCommunication.Create allows a client to create a message between health systems and community-based organizations about a referral request made through Continued Care & Services Coordination (CCSC) workflows in Epic, such as a post-discharge service request for durable medical equipment (DME) or social services.\n\nThis resource includes general information about the message, including the sender and recipient, the date and time it was sent, and the patient to whom it applies."
-		},
-		{
 			"name": "Appointment",
 			"item": [
 				{
@@ -501,6 +409,119 @@
 			"id": "7434444d-b5a4-4db8-bd55-c1204c200668"
 		},
 		{
+			"name": "Communication",
+			"item": [
+				{
+					"name": "Communication Read (R4)",
+					"id": "27473cf3-997b-428f-af3c-d9e244aa4a86",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{BaseURL}}//R4/Communication/erXuFYUfucBZaryVksYEcMg3"
+					},
+					"response": []
+				},
+				{
+					"name": "Communication Create (R4)",
+					"id": "ef4327f5-ec2d-473f-a8ef-4cbabe04ed7c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{BaseURL}}//R4/Communication"
+					},
+					"response": []
+				},
+				{
+					"name": "Communication Search (R4)",
+					"id": "1c791321-785d-4f7b-8601-91639e1866da",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseURL}}/R4/Communication?part-of=&patient=erXuFYUfucBZaryVksYEcMg3",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"R4",
+								"Communication"
+							],
+							"query": [
+								{
+									"key": "part-of",
+									"value": "",
+									"type": "text",
+									"description": "Reference to the Task resource this Communication belongs to."
+								},
+								{
+									"key": "patient",
+									"value": "erXuFYUfucBZaryVksYEcMg3",
+									"type": "text"
+								},
+								{
+									"key": "subject",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "based-on",
+									"value": "",
+									"type": "text",
+									"description": "Reference to the related CarePlan resource.",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "",
+									"type": "text",
+									"description": "The message category. SNOMED code 409073007 should be used if this parameter is specified.",
+									"disabled": true
+								},
+								{
+									"key": "encounter",
+									"value": "",
+									"type": "text",
+									"description": "Encounter created as part of.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "c98304bf-0f7a-4ee8-b97d-f448394ed257",
+			"description": "### Description\n\nCommunication.Create allows a client to create a message between health systems and community-based organizations about a referral request made through Continued Care & Services Coordination (CCSC) workflows in Epic, such as a post-discharge service request for durable medical equipment (DME) or social services.\n\nThis resource includes general information about the message, including the sender and recipient, the date and time it was sent, and the patient to whom it applies."
+		},
+		{
 			"name": "Condition",
 			"item": [
 				{
@@ -579,6 +600,173 @@
 				}
 			],
 			"id": "3191566b-1ed1-40e6-b71b-d3e175f80058"
+		},
+		{
+			"name": "Consent",
+			"item": [
+				{
+					"name": "Consent Read",
+					"id": "65d9413a-35c1-4df9-b25d-fb91b52bc068",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/fhir+json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{BaseURL}}//R4/Consent/euDDjG6i1-OkhZii5APxOiw3"
+					},
+					"response": []
+				},
+				{
+					"name": "Consent Search",
+					"id": "4fc1d055-ce64-4447-a1d7-7906cbc71148",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/fhir+json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseURL}}/R4/Consent?patient=erXuFYUfucBZaryVksYEcMg3",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"R4",
+								"Consent"
+							],
+							"query": [
+								{
+									"key": "patient",
+									"value": "erXuFYUfucBZaryVksYEcMg3",
+									"type": "text"
+								},
+								{
+									"key": "subject",
+									"value": "",
+									"type": "text",
+									"description": "activate, resolved, inactive",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "",
+									"type": "text",
+									"description": "dental-finding,dental-finding,genomics,health-concern,infection,medical-history,problem-list-item,eason-for-visit",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "68c8da7d-ec8d-46d8-9b21-575fb1b0f6cb"
+		},
+		{
+			"name": "Coverage",
+			"item": [
+				{
+					"name": "Coverage Read",
+					"id": "ec4c330f-f0c3-4e5c-984d-8ffc4ca1243d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/fhir+json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{BaseURL}}//R4/Coverage/euDDjG6i1-OkhZii5APxOiw3"
+					},
+					"response": []
+				},
+				{
+					"name": "Coverage Search",
+					"id": "a7344565-6f9e-4740-b35d-f914134e783a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/fhir+json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseURL}}/R4/Coverage?patient=erXuFYUfucBZaryVksYEcMg3",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"R4",
+								"Coverage"
+							],
+							"query": [
+								{
+									"key": "patient",
+									"value": "erXuFYUfucBZaryVksYEcMg3",
+									"type": "text"
+								},
+								{
+									"key": "beneficiary",
+									"value": "",
+									"type": "text",
+									"description": "activate, resolved, inactive",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "3852899c-acea-463b-a80d-cd9fe24a1ad9"
 		},
 		{
 			"name": "DocumentReference",
