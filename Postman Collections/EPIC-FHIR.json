@@ -960,6 +960,96 @@
 			"id": "e694a3e0-1bb6-4f45-b882-a36b98e8ce60"
 		},
 		{
+			"name": "Device",
+			"item": [
+				{
+					"name": "Device Read (R4)",
+					"id": "d0639f58-3b21-453f-b2db-3a8e6cf015a2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{BaseURL}}/R4/Device/e6kBx6PwnxIv.5kCifScsWg3"
+					},
+					"response": []
+				},
+				{
+					"name": "Device Search (R4)",
+					"id": "32658a46-b5a8-43a6-b81e-bd237f9fe7e9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseURL}}/R4/Device?patient=eq081-VQEgP8drUUqCWzHfw3",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"R4",
+								"Device"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "identifier",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "class",
+									"value": "",
+									"type": "text",
+									"description": "The status:\n\npreliminary\nfinal\namended\nentered-in-error",
+									"disabled": true
+								},
+								{
+									"key": "onlyscannable",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "patient",
+									"value": "eq081-VQEgP8drUUqCWzHfw3"
+								},
+								{
+									"key": "subject",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "d9055671-e358-4c16-8d52-1d6666d3e21e"
+		},
+		{
 			"name": "Immunization",
 			"item": [
 				{
