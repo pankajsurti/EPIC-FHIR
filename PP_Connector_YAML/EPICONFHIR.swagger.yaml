@@ -1,0 +1,945 @@
+swagger: '2.0'
+info:
+  title: EPICONFHIR
+  description: EPIC on FHIR
+  version: '1.0'
+host: fhir.epic.com
+basePath: /interconnect-fhir-oauth/api/FHIR
+schemes:
+  - https
+consumes: []
+produces:
+  - application/json
+paths:
+  /R4/AllergyIntolerance/{ID}:
+    get:
+      tags:
+        - AllergyIntolerance
+      responses:
+        '200':
+          description: The request has succeeded.
+          schema: {}
+      summary: AllergyIntolerance.Read
+      description: The AllergyIntolerance TODO.
+      operationId: AllergyIntoleranceRead
+      parameters:
+        - $ref: '#/parameters/ID'
+        - $ref: '#/parameters/Accept.App.JSON'
+  /R4/AllergyIntolerance:
+    get:
+      tags:
+        - AllergyIntolerance
+      responses:
+        '200':
+          description: The request has succeeded.
+          schema: {}
+      summary: AllergyIntolerance.Search
+      description: The AllergyIntolerance TODO.
+      operationId: AllergyIntoleranceSearch
+      parameters:
+        - $ref: '#/parameters/patient'
+        - $ref: '#/parameters/clinical-status'
+  /R4/AllergyIntolerance/:
+    post:
+      tags:
+        - AllergyIntolerance
+      responses:
+        '200':
+          description: The request has succeeded.
+          schema: {}
+      summary: AllergyIntolerance.Create
+      description: The AllergyIntolerance TODO.
+      operationId: AllergyIntoleranceCreate
+      parameters:
+        - name: body
+          in: body
+          schema: {}
+  /R4/DocumentReference/{ID}:
+    get:
+      tags:
+        - DocumentReference
+      responses:
+        '200':
+          description: The request has succeeded.
+          schema: {}
+      summary: DocumentReference.Read
+      description: The DocumentReference TODO.
+      operationId: DocumentReferenceRead
+      parameters:
+        - $ref: '#/parameters/ID'
+        - $ref: '#/parameters/Accept.App.JSON'
+  /R4/DocumentReference:
+    get:
+      tags:
+        - DocumentReference
+      parameters:
+        - $ref: '#/parameters/category'
+        - $ref: '#/parameters/patient'
+        - $ref: '#/parameters/subject'
+        - $ref: '#/parameters/period'
+        - $ref: '#/parameters/Accept.App.JSON'
+      responses:
+        '200':
+          description: The request has succeeded.
+          schema: {}
+      summary: DocumentReference.Search
+      operationId: DocumentReferenceSearch
+      description: TODO DocumentReference.
+  /R4/Encounter/{ID}:
+    get:
+      tags:
+        - Encounter
+      responses:
+        '200':
+          description: The request has succeeded.
+          schema: {}
+      summary: Encounter.Read
+      description: The Encounter TODO.
+      operationId: EncounterRead
+      parameters:
+        - $ref: '#/parameters/ID'
+        - $ref: '#/parameters/Accept.App.JSON'
+  /R4/Encounter:
+    get:
+      tags:
+        - Encounter
+      parameters:
+        - $ref: '#/parameters/patient'
+        - $ref: '#/parameters/subject'
+        - $ref: '#/parameters/period'
+        - $ref: '#/parameters/class'
+        - $ref: '#/parameters/date'
+        - $ref: '#/parameters/identifier'
+        - $ref: '#/parameters/onlyscannable'
+        - $ref: '#/parameters/Accept.App.JSON'
+      responses:
+        '200':
+          description: The request has succeeded.
+          schema: {}
+      summary: Encounter.Search
+      operationId: EncounterSearch
+      description: TODO Encounter.
+  /R4/Binary/{ID}:
+    get:
+      tags:
+        - Binary
+      responses:
+        '200':
+          description: The request has succeeded.
+          schema: {}
+      summary: Binary.Read
+      description: The Binary TODO.
+      operationId: BinaryRead
+      parameters:
+        - $ref: '#/parameters/ID'
+        - $ref: '#/parameters/Accept.App.JSON'
+  /R4/Binary:
+    get:
+      tags:
+        - Binary
+      parameters:
+        - $ref: '#/parameters/_id'
+        - $ref: '#/parameters/Accept.App.JSON'
+      responses:
+        '200':
+          description: The request has succeeded.
+          schema: {}
+      summary: Binary.Search
+      operationId: BinarySearch
+      description: TODO Binary.
+  /R4/Condition/{ID}:
+    get:
+      tags:
+        - Condition
+      responses:
+        '200':
+          description: The request has succeeded.
+          schema: {}
+      summary: Condition.Read
+      description: The condition TODO.
+      operationId: ConditionRead
+      parameters:
+        - $ref: '#/parameters/ID'
+        - $ref: '#/parameters/Accept.App.JSON'
+  /R4/Condition:
+    get:
+      tags:
+        - Condition
+      parameters:
+        - $ref: '#/parameters/patient'
+        - $ref: '#/parameters/clinical-status'
+        - $ref: '#/parameters/category'
+        - $ref: '#/parameters/Accept.App.JSON'
+      responses:
+        '200':
+          description: The request has succeeded.
+          schema: {}
+      summary: Condition.Search
+      operationId: ConditionSearch
+      description: >-
+        This web service retrieves condition (diagnosis) data from a patient's
+        chart. This includes any data found in the patient's diagnoses across
+        all encounters. This resource can be queried by a combination of patient
+        ID and status.
+  /R4/Observation/{ID}:
+    get:
+      tags:
+        - Observation
+      responses:
+        '200':
+          description: The request has succeeded.
+          schema: {}
+      summary: Observation.Read
+      description: The Observation TODO.
+      operationId: ObservationRead
+      parameters:
+        - $ref: '#/parameters/ID'
+        - $ref: '#/parameters/Accept.App.JSON'
+  /R4/Observation:
+    get:
+      tags:
+        - Observation
+      parameters:
+        - $ref: '#/parameters/patient'
+        - name: category
+          in: query
+          required: true
+          type: string
+        - name: code
+          in: query
+          required: false
+          type: string
+          description: >-
+            LOINC code of observation. Can be 76516-4 for gestational age or
+            8339-4 for birth weight..
+          x-ms-summary: >-
+            LOINC code of observation. Can be 76516-4 for gestational age or
+            8339-4 for birth weight.
+          x-ms-visibility: advanced
+      responses:
+        '200':
+          description: The request has succeeded.
+          schema: {}
+      summary: Observation.Search
+      operationId: ObservationSearch
+      description: >-
+        The FHIR Observation resource defines measurements and assertions about
+        a patient, including vital signs, laboratory data, imaging results,
+        devices measurements, clinical assessment tools, personal
+        characteristics, social history, and core characteristics.
+  /R4/Patient/{ID}:
+    get:
+      tags:
+        - Patient
+      responses:
+        '200':
+          description: The request has succeeded.
+          schema:
+            $ref: '#/definitions/Patient'
+      summary: Patient.Read
+      description: >-
+        The FHIR Patient resource defines demographics, care providers, and
+        other administrative information about a person receiving care at a
+        health organization.
+      operationId: PatientRead
+      parameters:
+        - $ref: '#/parameters/ID'
+        - $ref: '#/parameters/Accept.App.JSON'
+  /R4/Patient:
+    get:
+      tags:
+        - Patient
+      responses:
+        default:
+          description: default
+          schema: {}
+      summary: Patient.Search
+      description: >-
+        The FHIR Patient resource defines demographics, care providers, and
+        other administrative information about a person receiving care at a
+        health organization.
+      operationId: PatientSearch
+      parameters:
+        - $ref: '#/parameters/address'
+        - $ref: '#/parameters/city'
+        - $ref: '#/parameters/address-postalcode'
+        - $ref: '#/parameters/address-state'
+        - $ref: '#/parameters/birthdate'
+        - $ref: '#/parameters/family'
+        - $ref: '#/parameters/gender'
+        - $ref: '#/parameters/given'
+        - $ref: '#/parameters/identifier'
+        - $ref: '#/parameters/legal-sex'
+        - $ref: '#/parameters/name'
+        - $ref: '#/parameters/own-name'
+        - $ref: '#/parameters/own-prefix'
+        - $ref: '#/parameters/partner-name'
+        - $ref: '#/parameters/partner-prefix'
+        - $ref: '#/parameters/telecom'
+        - $ref: '#/parameters/Accept.App.JSON'
+  /R4/Patient/$match:
+    post:
+      tags:
+        - Patient
+      responses:
+        default:
+          description: default
+          schema: {}
+      summary: Patient $Match
+      description: >-
+        The $match operation accepts a set of patient demographic information
+        and attempts to find a single high-confidence match for a patient record
+        in the target organization’s system.
+      operationId: PatientMatch
+      parameters:
+        - name: body
+          in: body
+          schema: {}
+
+definitions:
+  Patient:
+    type: object
+    properties:
+      resourceType:
+        type: string
+        description: resourceType
+      id:
+        type: string
+        description: id
+      extension:
+        type: array
+        items:
+          type: object
+          properties:
+            valueCodeableConcept:
+              type: object
+              properties:
+                coding:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      system:
+                        type: string
+                        description: system
+                      code:
+                        type: string
+                        description: code
+                      display:
+                        type: string
+                        description: display
+                  description: coding
+              description: valueCodeableConcept
+            url:
+              type: string
+              description: url
+            extension:
+              type: array
+              items:
+                type: object
+                properties:
+                  valueCoding:
+                    type: object
+                    properties:
+                      system:
+                        type: string
+                        description: system
+                      code:
+                        type: string
+                        description: code
+                      display:
+                        type: string
+                        description: display
+                    description: valueCoding
+                  url:
+                    type: string
+                    description: url
+                  valueString:
+                    type: string
+                    description: valueString
+              description: extension
+        description: extension
+      identifier:
+        type: array
+        items:
+          type: object
+          properties:
+            use:
+              type: string
+              description: use
+            type:
+              type: object
+              properties:
+                text:
+                  type: string
+                  description: text
+              description: type
+            system:
+              type: string
+              description: system
+            value:
+              type: string
+              description: value
+        description: identifier
+      active:
+        type: boolean
+        description: active
+      name:
+        type: array
+        items:
+          type: object
+          properties:
+            use:
+              type: string
+              description: use
+            text:
+              type: string
+              description: text
+            family:
+              type: string
+              description: family
+            given:
+              type: array
+              items:
+                type: string
+              description: given
+        description: name
+      telecom:
+        type: array
+        items:
+          type: object
+          properties:
+            system:
+              type: string
+              description: system
+            value:
+              type: string
+              description: value
+            use:
+              type: string
+              description: use
+            rank:
+              type: integer
+              format: int32
+              description: rank
+        description: telecom
+      gender:
+        type: string
+        description: gender
+      birthDate:
+        type: string
+        description: birthDate
+      deceasedBoolean:
+        type: boolean
+        description: deceasedBoolean
+      address:
+        type: array
+        items:
+          type: object
+          properties:
+            use:
+              type: string
+              description: use
+            line:
+              type: array
+              items:
+                type: string
+              description: line
+            city:
+              type: string
+              description: city
+            district:
+              type: string
+              description: district
+            state:
+              type: string
+              description: state
+            postalCode:
+              type: string
+              description: postalCode
+            country:
+              type: string
+              description: country
+            period:
+              type: object
+              properties:
+                start:
+                  type: string
+                  description: start
+              description: period
+        description: address
+      maritalStatus:
+        type: object
+        properties:
+          text:
+            type: string
+            description: text
+        description: maritalStatus
+      communication:
+        type: array
+        items:
+          type: object
+          properties:
+            language:
+              type: object
+              properties:
+                coding:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      system:
+                        type: string
+                        description: system
+                      code:
+                        type: string
+                        description: code
+                      display:
+                        type: string
+                        description: display
+                  description: coding
+                text:
+                  type: string
+                  description: text
+              description: language
+            preferred:
+              type: boolean
+              description: preferred
+        description: communication
+      generalPractitioner:
+        type: array
+        items:
+          type: object
+          properties:
+            reference:
+              type: string
+              description: reference
+            type:
+              type: string
+              description: type
+            display:
+              type: string
+              description: display
+        description: generalPractitioner
+      managingOrganization:
+        type: object
+        properties:
+          reference:
+            type: string
+            description: reference
+          display:
+            type: string
+            description: display
+        description: managingOrganization
+        
+  Condition:
+    type: object
+    properties:
+      resourceType:
+        type: string
+        description: resourceType
+      id:
+        type: string
+        description: id
+      clinicalStatus:
+        type: object
+        properties:
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                  description: system
+                version:
+                  type: string
+                  description: version
+                code:
+                  type: string
+                  description: code
+                display:
+                  type: string
+                  description: display
+            description: coding
+          text:
+            type: string
+            description: text
+        description: clinicalStatus
+      verificationStatus:
+        type: object
+        properties:
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                  description: system
+                version:
+                  type: string
+                  description: version
+                code:
+                  type: string
+                  description: code
+                display:
+                  type: string
+                  description: display
+            description: coding
+          text:
+            type: string
+            description: text
+        description: verificationStatus
+      category:
+        type: array
+        items:
+          type: object
+          properties:
+            coding:
+              type: array
+              items:
+                type: object
+                properties:
+                  system:
+                    type: string
+                    description: system
+                  code:
+                    type: string
+                    description: code
+                  display:
+                    type: string
+                    description: display
+              description: coding
+            text:
+              type: string
+              description: text
+        description: category
+      severity:
+        type: object
+        properties:
+          text:
+            type: string
+            description: text
+        description: severity
+      code:
+        type: object
+        properties:
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                  description: system
+                code:
+                  type: string
+                  description: code
+            description: coding
+          text:
+            type: string
+            description: text
+        description: code
+      subject:
+        type: object
+        properties:
+          reference:
+            type: string
+            description: reference
+          display:
+            type: string
+            description: display
+        description: subject
+      onsetPeriod:
+        type: object
+        properties:
+          start:
+            type: string
+            description: start
+          end:
+            type: string
+            description: end
+        description: onsetPeriod
+      recordedDate:
+        type: string
+        description: recordedDate
+parameters:
+  Accept.App.JSON:
+    name: Accept
+    in: header
+    type: string
+    default: application/json
+  _id:
+    name: _id
+    in: query
+    required: false
+    type: string
+    description: TBD.
+    x-ms-summary: TBD.
+    x-ms-visibility: advanced
+  address:
+    name: address
+    in: query
+    required: false
+    type: string
+    description: The patient's street address.
+    x-ms-summary: The patient's street address.
+    x-ms-visibility: advanced
+  address-city:
+    name: city
+    in: query
+    required: false
+    type: string
+    description: The city for patient's home address.
+    x-ms-summary: The city for patient's home address.
+    x-ms-visibility: advanced
+  address-postalcode:
+    name: address-postalcode
+    in: query
+    required: false
+    type: string
+    description: The postal code for patient's home address.
+    x-ms-summary: The postal code for patient's home address.
+    x-ms-visibility: advanced
+  address-state:
+    name: address-state
+    in: query
+    required: false
+    type: string
+    description: The state for the patient's home address.
+    x-ms-summary: The state for the patient's home address.
+    x-ms-visibility: advanced
+  birthdate:
+    name: birthdate
+    in: query
+    required: false
+    type: string
+    description: The patient's date of birth in the format YYYY-MM-DD.
+    x-ms-summary: The patient's date of birth in the format YYYY-MM-DD.
+    x-ms-visibility: advanced
+  category:
+    name: category
+    in: query
+    required: false
+    type: string
+    description: TBD.
+    x-ms-summary: TBD.
+    x-ms-visibility: advanced
+  city:
+    name: address-city
+    in: query
+    required: false
+    type: string
+    description: The city for patient's home address.
+    x-ms-summary: The city for patient's home address.
+    x-ms-visibility: advanced
+  class:
+    name: class
+    in: query
+    required: false
+    type: string
+    description: TBD.
+    x-ms-summary: TBD.
+    x-ms-visibility: advanced
+  clinical-status:
+    name: clinical-status
+    in: query
+    type: string
+    required: false
+  date:
+    name: date
+    in: query
+    required: false
+    type: string
+    description: TBD.
+    x-ms-summary: TBD.
+    x-ms-visibility: advanced
+  family:
+    name: family
+    in: query
+    required: false
+    type: string
+    description: The patient's family (last) name.
+    x-ms-summary: The patient's family (last) name.
+    x-ms-visibility: advanced
+  gender:
+    name: gender
+    in: query
+    required: false
+    type: string
+    description: >-
+      The patient's legal sex. Starting in the August 2021 version of Epic, the
+      legal-sex parameter is preferred.
+    x-ms-summary: >-
+      The patient's legal sex. Starting in the August 2021 version of Epic, the
+      legal-sex parameter is preferred.
+    x-ms-visibility: advanced
+  given:
+    name: given
+    in: query
+    required: false
+    type: string
+    description: The patient's given name. May include first and middle names.
+    x-ms-summary: The patient's given name. May include first and middle names.
+    x-ms-visibility: advanced
+  ID:
+    name: ID
+    in: path
+    required: true
+    type: string
+    description: The patient FHIR ID.
+    x-ms-summary: The patient FHIR ID.
+    x-ms-visibility: important
+  identifier:
+    name: identifier
+    in: query
+    required: false
+    type: string
+    description: The patient's identifier.
+    x-ms-summary: The patient's identifier.
+    x-ms-visibility: advanced
+  legal-sex:
+    name: legal-sex
+    in: query
+    required: false
+    type: string
+    description: >-
+      The patient’s legal sex. Takes precedence over the gender search
+      parameter.
+    x-ms-summary: >-
+      The patient’s legal sex. Takes precedence over the gender search
+      parameter.
+    x-ms-visibility: advanced
+  name:
+    name: name
+    in: query
+    required: false
+    type: string
+    description: >-
+      Any part of the patient's name. When discrete name parameters are used,
+      such as family or given, this parameter is ignored.
+    x-ms-summary: >-
+      Any part of the patient's name. When discrete name parameters are used,
+      such as family or given, this parameter is ignored.
+    x-ms-visibility: advanced
+  onlyscannable:
+    name: onlyscannable
+    in: query
+    required: false
+    type: string
+    description: TBD.
+    x-ms-summary: TBD.
+    x-ms-visibility: advanced
+  own-name:
+    name: own-name
+    in: query
+    required: false
+    type: string
+    description: The patient's own last name. Usually used in non-US names.
+    x-ms-summary: The patient's own last name. Usually used in non-US names.
+    x-ms-visibility: advanced
+  own-prefix:
+    name: own-prefix
+    in: query
+    required: false
+    type: string
+    description: The patient's own prefix. Usually used in non-US names.
+    x-ms-summary: The patient's own prefix. Usually used in non-US names.
+    x-ms-visibility: advanced
+  partner-name:
+    name: partner-name
+    in: query
+    required: false
+    type: string
+    description: The patient's spouse's last name. Usually used in non-US names.
+    x-ms-summary: The patient's spouse's last name. Usually used in non-US names.
+    x-ms-visibility: advanced
+  partner-prefix:
+    name: partner-prefix
+    in: query
+    required: false
+    type: string
+    description: The patient's spouse's prefix. Usually used in non-US names.
+    x-ms-summary: The patient's spouse's prefix. Usually used in non-US names.
+    x-ms-visibility: advanced
+  patient:
+    name: patient
+    in: query
+    type: string
+    required: false
+  period:
+    name: period
+    in: query
+    required: false
+    type: string
+    description: TBD.
+    x-ms-summary: TBD.
+    x-ms-visibility: advanced
+  subject:
+    name: subject
+    in: query
+    required: false
+    type: string
+    description: TBD.
+    x-ms-summary: TBD.
+    x-ms-visibility: advanced
+  telecom:
+    name: telecom
+    in: query
+    required: false
+    type: string
+    description: The patient's phone number or email.
+    x-ms-summary: The patient's phone number or email.
+    x-ms-visibility: advanced
+responses: {}
+securityDefinitions:
+  oauth2-auth:
+    type: oauth2
+    flow: accessCode
+    authorizationUrl: https://fhir.epic.com/interconnect-fhir-oauth/oauth2/authorize
+    tokenUrl: https://fhir.epic.com/interconnect-fhir-oauth/oauth2/token
+    scopes:
+      Patient.Read Patient.Search Condition.Read Condition.Search Appointment.Read Appointment.Search DocumentReference.Read DocumentReference.Search DocumentReference.Create Binary.Read Binary.Search Encounter.Read Encounter.Search: >-
+        Patient.Read Patient.Search Condition.Read Condition.Search
+        Appointment.Read Appointment.Search DocumentReference.Read
+        DocumentReference.Search DocumentReference.Create Binary.Read
+        Binary.Search Encounter.Read Encounter.Search
+security:
+  - oauth2-auth:
+      - >-
+        Patient.Read Patient.Search Condition.Read Condition.Search
+        Appointment.Read Appointment.Search DocumentReference.Read
+        DocumentReference.Search DocumentReference.Create Binary.Read
+        Binary.Search Encounter.Read Encounter.Search
+tags:
+  - name: Patient
+    description: Patient APIs
+    externalDocs:
+      description: Patient.Read
+      url: https://fhir.epic.com/Specifications?api=931
+  - name: Condition
+    description: Condition APIs
+    externalDocs:
+      description: Condition.Read
+      url: https://fhir.epic.com/Specifications?api=10187
+  - name: DocumentReference
+    description: DocumentReference APIs
+    externalDocs:
+      url: https://fhir.epic.com/Specifications?api=10469
+      description: DocumentReference.Read
+  - name: Encounter
+    description: Encounter APIs
+    externalDocs:
+      url: https://fhir.epic.com/Specifications?api=10470
+      description: Encounter.Read
+  - name: Binary
+    description: Binary APIs
+    externalDocs:
+      url: https://fhir.epic.com/Specifications?api=10471
+      description: Binary.Read
+  - name: Observation
+    description: Observation APIs
+    externalDocs:
+      url: https://fhir.epic.com/Specifications?api=10472
+      description: Observation.Read
